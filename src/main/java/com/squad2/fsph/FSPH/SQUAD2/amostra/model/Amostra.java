@@ -2,11 +2,9 @@ package com.squad2.fsph.FSPH.SQUAD2.amostra.model;
 
 
 import com.squad2.fsph.FSPH.SQUAD2.amostra.dto.AmostraDto;
+import com.squad2.fsph.FSPH.SQUAD2.lote.model.Lote;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -14,6 +12,7 @@ import java.time.LocalDateTime;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -26,6 +25,10 @@ public abstract class Amostra {
 
     @Embedded
     private Endereco endereco;
+
+    @ManyToOne
+    @JoinColumn(name = "lote_id") // Amostra pode ou não ter um lote
+    private Lote lote;
 
     public Amostra(AmostraDto dados){
         this.dataHora = dados.dataHora();
