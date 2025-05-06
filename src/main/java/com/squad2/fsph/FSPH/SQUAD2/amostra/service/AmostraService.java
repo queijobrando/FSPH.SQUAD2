@@ -1,5 +1,6 @@
 package com.squad2.fsph.FSPH.SQUAD2.amostra.service;
 
+import com.squad2.fsph.FSPH.SQUAD2.amostra.model.Amostra;
 import com.squad2.fsph.FSPH.SQUAD2.amostra.repository.AmostraRepository;
 import com.squad2.fsph.FSPH.SQUAD2.tipoAmostra.dto.AmostraEscorpiaoDto;
 import com.squad2.fsph.FSPH.SQUAD2.tipoAmostra.dto.AmostraFlebotomineosDto;
@@ -12,6 +13,8 @@ import com.squad2.fsph.FSPH.SQUAD2.tipoAmostra.repository.AmostraFlebotomineoRep
 import com.squad2.fsph.FSPH.SQUAD2.tipoAmostra.repository.AmostraTriatomineosRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class AmostraService {
@@ -44,5 +47,9 @@ public class AmostraService {
     public AmostraTriatomineos cadastrarAmostraTriatomineos(AmostraTriatomineosDto dados){
         AmostraTriatomineos novaAmostra = new AmostraTriatomineos(dados);
         return amostraTriatomineosRepository.save(novaAmostra);
+    }
+
+    public List<Amostra> listarAmostras(){
+        return amostraRepository.findAll();
     }
 }

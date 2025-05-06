@@ -6,9 +6,11 @@ import com.squad2.fsph.FSPH.SQUAD2.amostra.model.Amostra;
 import com.squad2.fsph.FSPH.SQUAD2.tipoAmostra.dto.AmostraTriatomineosDto;
 import com.squad2.fsph.FSPH.SQUAD2.tipoAmostra.enuns.*;
 import jakarta.persistence.*;
+import lombok.Getter;
 
 @Table(name = "amostra_triatomineos")
 @Entity
+@Getter
 public class AmostraTriatomineos extends Amostra {
 
     @Enumerated(EnumType.STRING)
@@ -50,6 +52,7 @@ public class AmostraTriatomineos extends Amostra {
         this.insetifugo = dados.insetifugo();
         this.numeroInsetos = dados.numeroInsetos();
         this.condicao = dados.condicao();
+        this.setTipoAmostra(TipoAmostra.TRIATOMINEOS); // Seta o tipo da amostra
     }
 
 }

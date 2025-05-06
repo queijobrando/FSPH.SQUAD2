@@ -5,10 +5,12 @@ import com.squad2.fsph.FSPH.SQUAD2.amostra.model.Amostra;
 import com.squad2.fsph.FSPH.SQUAD2.tipoAmostra.dto.AmostraFlebotomineosDto;
 import com.squad2.fsph.FSPH.SQUAD2.tipoAmostra.enuns.*;
 import jakarta.persistence.*;
+import lombok.Getter;
 
 
 @Table(name = "amostra_flebotomineos")
 @Entity
+@Getter
 public class AmostraFlebotomineos extends Amostra {
 
     @Enumerated(EnumType.STRING)
@@ -124,5 +126,6 @@ public class AmostraFlebotomineos extends Amostra {
         this.materiaOrganica = dados.materiaOrganica();
         this.precipitacao = dados.precipitacao();
         this.observacao = dados.observacao();
+        this.setTipoAmostra(TipoAmostra.FLEBOTOMINEOS); // Seta o tipo da amostra
     }
 }
