@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("amostra")
-public class AmostraController {
+@RequestMapping("cadastro/amostra")
+public class CadastroAmostraController {
 
     private final AmostraService amostraService;
 
-    public AmostraController(AmostraService amostraService) {
+    public CadastroAmostraController(AmostraService amostraService) {
         this.amostraService = amostraService;
     }
 
@@ -41,9 +41,4 @@ public class AmostraController {
         return ResponseEntity.ok(novaAmostra);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Amostra>> listarTodasAmostras(){
-        var lista = amostraService.listarAmostras();
-        return ResponseEntity.ok(lista);
-    }
 }
