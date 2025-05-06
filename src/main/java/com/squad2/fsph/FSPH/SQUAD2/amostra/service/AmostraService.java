@@ -11,6 +11,7 @@ import com.squad2.fsph.FSPH.SQUAD2.tipoAmostra.model.AmostraTriatomineos;
 import com.squad2.fsph.FSPH.SQUAD2.tipoAmostra.repository.AmostraEscorpiaoRepository;
 import com.squad2.fsph.FSPH.SQUAD2.tipoAmostra.repository.AmostraFlebotomineoRepository;
 import com.squad2.fsph.FSPH.SQUAD2.tipoAmostra.repository.AmostraTriatomineosRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,7 +50,14 @@ public class AmostraService {
         return amostraTriatomineosRepository.save(novaAmostra);
     }
 
+    //Listar amostras cadastradas
     public List<Amostra> listarAmostras(){
         return amostraRepository.findAll();
+    }
+
+    //Listar amostra por ID
+    public Amostra listarAmostraPorId(Long id){
+        return amostraRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Amostra não encontrada"));
     }
 }
