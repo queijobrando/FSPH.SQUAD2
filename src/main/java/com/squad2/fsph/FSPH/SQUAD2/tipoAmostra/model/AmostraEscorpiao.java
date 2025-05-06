@@ -18,7 +18,7 @@ public class AmostraEscorpiao extends Amostra {
     private boolean acidente;
 
     public AmostraEscorpiao() {
-        super(); // chama o construtor da classe abstrata Amostra
+        super();
     }
 
     public AmostraEscorpiao(AmostraEscorpiaoDto dados) {
